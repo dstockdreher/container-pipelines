@@ -9,7 +9,8 @@ retriever: modernSCM(
 openshift.withCluster() {
   env.NAMESPACE = openshift.project()
   env.POM_FILE = env.BUILD_CONTEXT_DIR ? "${env.BUILD_CONTEXT_DIR}/pom.xml" : "pom.xml"
-  env.APP_NAME = "${JOB_NAME}".replaceAll(/-build.*/, '')
+  //env.APP_NAME = "${JOB_NAME}".replaceAll(/-build.*/, '')
+  env.APP_NAME = "basic-spring-boot"
   echo "Starting Pipeline for ${APP_NAME}..."
   env.BUILD = "${env.NAMESPACE}"
   env.DEV = "${APP_NAME}-dev"
@@ -84,7 +85,7 @@ pipeline {
           echo "APP_NAME is ${APP_NAME}..."
           echo "BUILD is ${BUILD}..."
           echo "NAMESPACE IS ${NAMESPACE}"
-        binaryBuild(projectName: env.BUILD, buildConfigName: env.NAMESPACE, artifactsDirectoryName: "oc-build")
+        binaryBuild(projectName: env.BUILD, buildConfigName: env.APP_NAME, artifactsDirectoryName: "oc-build")
       }
     }
 
