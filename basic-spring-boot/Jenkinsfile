@@ -83,7 +83,7 @@ pipeline {
           echo "WHAT IS HAPPENING? " 
           echo "APP_NAME is ${APP_NAME}..."
           echo "BUILD is ${BUILD}..."
-        echo "NAMESPACE IS ${NAMESPACE}
+          echo "NAMESPACE IS ${NAMESPACE}"
         binaryBuild(projectName: env.BUILD, buildConfigName: env.NAMESPACE, artifactsDirectoryName: "oc-build")
       }
     }
