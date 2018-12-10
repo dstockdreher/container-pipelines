@@ -56,7 +56,11 @@ pipeline {
     // Run Maven unit tests
     stage('Unit Test'){
       steps {
-        sh "mvn test -f ${POM_FILE}"
+        configFileProvider([configFile(fileId: '6fba6766-97ba-40f1-93f8-8a3bdb36522c', variable: 'MAVEN_SETTINGS')]) {
+          sh 'mvn -s $MAVEN_SETTINGS test -f ${POM_FILE}'    
+          //sh 'mvn clean install -X -DskipTests=true -f ${POM_FILE}'    
+        }
+        //sh "mvn test -f ${POM_FILE}"
       }
     }
 
