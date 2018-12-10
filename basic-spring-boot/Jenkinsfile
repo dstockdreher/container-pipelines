@@ -47,7 +47,7 @@ pipeline {
     stage('Build'){
       steps {
         configFileProvider([configFile(fileId: '6fba6766-97ba-40f1-93f8-8a3bdb36522c', variable: 'MAVEN_SETTINGS')]) {
-          sh 'mvn -s $MAVEN_SETTINGS clean install -DskipTests=true -f ${POM_FILE}'    
+          sh 'mvn -s $MAVEN_SETTINGS clean install -X -DskipTests=true -f ${POM_FILE}'    
         }
       }
     }
