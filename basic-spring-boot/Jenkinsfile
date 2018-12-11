@@ -92,6 +92,10 @@ pipeline {
 
     stage('Promote from Build to Dev') {
       steps {
+        echo "promote BUILD is ${BUILD}"
+        echo "NAMESPACE IS ${NAMESPACE}"
+        echo "to image path is  ${DEV}" 
+ 
         tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV)
       }
     }
