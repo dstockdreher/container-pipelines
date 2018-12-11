@@ -85,7 +85,8 @@ pipeline {
           echo "APP_NAME is ${APP_NAME}..."
           echo "BUILD is ${BUILD}..."
           echo "NAMESPACE IS ${NAMESPACE}"
-        binaryBuild(projectName: env.BUILD, buildConfigName: env.APP_NAME, artifactsDirectoryName: "oc-build")
+          echo "bol-incoming-data-processor is the buildconfig being used" 
+        binaryBuild(projectName: env.BUILD, buildConfigName: "bol-incoming-data-processor", artifactsDirectoryName: "oc-build")
       }
     }
 
