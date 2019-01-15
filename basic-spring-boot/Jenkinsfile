@@ -97,12 +97,15 @@ pipeline {
         echo "to image path is  ${DEV}" 
  
         tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV)
+        echo "tagImage Done"
       }
     }
 
     stage ('Verify Deployment to Dev') {
       steps {
+        echo "start verifyDeployment"
         verifyDeployment(projectName: env.DEV, targetApp: env.APP_NAME)
+        echo "verifyDeployment Done"
       }
     }
 
