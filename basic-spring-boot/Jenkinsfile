@@ -86,7 +86,9 @@ pipeline {
           echo "BUILD is ${BUILD}..."
           echo "NAMESPACE IS ${NAMESPACE}"
           echo "bol-incoming-data-processor is the buildconfig being used" 
-        binaryBuild(projectName: env.BUILD, buildConfigName: "bol-incoming-data-processor", artifactsDirectoryName: "oc-build")
+
+          // We're not even testing that the build works, we're just trying to get it to tag from -build into -dev, so i'll comment it out for now
+          //binaryBuild(projectName: env.BUILD, buildConfigName: "bol-incoming-data-processor", artifactsDirectoryName: "oc-build")
       }
     }
 
@@ -97,7 +99,8 @@ pipeline {
         echo "to image path is  ${DEV}" 
  
         tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME)
-        echo "tagImage Done"
+        tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.BUILD, toImageName: env.APP_NAME, toImageTag: "steve")
+        echo "tagImage Done should be done now..."
       }
     }
 
