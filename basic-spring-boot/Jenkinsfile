@@ -88,7 +88,7 @@ pipeline {
           echo "bol-incoming-data-processor is the buildconfig being used" 
 
           // We're not even testing that the build works, we're just trying to get it to tag from -build into -dev, so i'll comment it out for now
-          //binaryBuild(projectName: env.BUILD, buildConfigName: "bol-incoming-data-processor", artifactsDirectoryName: "oc-build")
+          binaryBuild(projectName: env.BUILD, buildConfigName: "bol-incoming-data-processor", artifactsDirectoryName: "oc-build")
       }
     }
 
