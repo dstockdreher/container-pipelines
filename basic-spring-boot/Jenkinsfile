@@ -88,7 +88,9 @@ pipeline {
           echo "bol-incoming-data-processor is the buildconfig being used" 
 
           // We're not even testing that the build works, we're just trying to get it to tag from -build into -dev, so i'll comment it out for now
-          binaryBuild(projectName: env.BUILD, buildConfigName: "bol-incoming-data-processor", artifactsDirectoryName: "oc-build")
+          //binaryBuild(projectName: env.BUILD, buildConfigName: "bol-incoming-data-processor", artifactsDirectoryName: "oc-build")
+          binaryBuild(projectName: env.BUILD, buildConfigName: "basic-spring-boot", artifactsDirectoryName: "oc-build")
+
       }
     }
 
@@ -98,10 +100,10 @@ pipeline {
         echo "NAMESPACE IS ${NAMESPACE}"
         echo "to image path is  ${DEV}" 
  
-        //tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME)
-        tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME, toImageTag: "steve")
-        tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME, toImageTag: "latest")
-        tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: "project-steve", toImageName: env.APP_NAME, toImageTag: "latest")
+        tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME)
+        //tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME, toImageTag: "steve")
+        //tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME, toImageTag: "latest")
+        //tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: "project-steve", toImageName: env.APP_NAME, toImageTag: "latest")
 
         echo "tagImage Done should be done now..."
       }
