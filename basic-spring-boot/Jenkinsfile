@@ -99,6 +99,7 @@ pipeline {
         echo "to image path is  ${DEV}" 
  
         tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME)
+        tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME, toImageTag: "steve")
         tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.BUILD, toImageName: env.APP_NAME, toImageTag: "steve")
         echo "tagImage Done should be done now..."
       }
