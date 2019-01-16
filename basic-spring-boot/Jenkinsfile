@@ -98,7 +98,7 @@ pipeline {
         echo "NAMESPACE IS ${NAMESPACE}"
         echo "to image path is  ${DEV}" 
  
-        tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME)
+        //tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME)
         //tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME, toImageTag: "steve")
         tagImage(sourceImageName: env.APP_NAME, sourceImagePath: env.BUILD, toImagePath: env.DEV, toImageName: env.APP_NAME, toImageTag: "latest")
         echo "tagImage Done should be done now..."
